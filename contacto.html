@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<link rel="stylesheet" type="text/css" href="styles.css">
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Contacto</title>
+</head>
+<body>
+    <h1>Formulario de Contacto</h1>
+    
+    <form id="contactForm" onsubmit="return validarFormulario()">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required>
+        <span id="errorNombre" class="error"></span>
+
+        <label for="email">Correo Electrónico:</label>
+        <input type="email" id="email" name="email" required>
+        <span id="errorEmail" class="error"></span>
+
+        <label for="motivo">Motivo de contacto:</label>
+        <select id="motivo" name="motivo">
+            <option value="consulta">Consulta</option>
+            <option value="sugerencia">Sugerencia</option>
+            <option value="queja">Queja</option>
+        </select>
+
+        <label for="mensaje">Mensaje:</label>
+        <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+        <span id="errorMensaje" class="error"></span>
+
+        <input type="submit" value="Enviar">
+    </form>
+
+    <script>
+        function validarFormulario() {
+            // Obtén los valores de los campos
+            var nombre = document.getElementById("nombre").value;
+            var email = document.getElementById("email").value;
+            var mensaje = document.getElementById("mensaje").value;
+            
+            // Validación de campos obligatorios
+            if (nombre === "") {
+                document.getElementById("errorNombre").textContent = "El nombre es obligatorio.";
+                return false;
+            }
+
+            if (email === "") {
+                document.getElementById("errorEmail").textContent = "El correo electrónico es obligatorio.";
+                return false;
+            }
+
+            if (mensaje === "") {
+                document.getElementById("errorMensaje").textContent = "El mensaje es obligatorio.";
+                return false;
+            }
+
+            // Validación de longitud máxima (por ejemplo, 100 caracteres para el nombre)
+            if (nombre.length > 100) {
+                document.getElementById("errorNombre").textContent = "El nombre no puede tener más de 100 caracteres.";
+                return false;
+            }
+
+            if (mensaje.length > 500) {
+                document.getElementById("errorMensaje").textContent = "El mensaje no puede tener más de 500 caracteres.";
+                return false;
+            }
+
+            // Validación de formato de correo electrónico usando expresiones regulares
+            var emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (!emailPattern.test(email)) {
+                document.getElementById("errorEmail").textContent = "El correo electrónico no es válido.";
+                return false;
+            }
+
+            // Si todo está bien, puedes enviar el formulario
+            return true;
+        }
+    </script>
+</body>
+</html>

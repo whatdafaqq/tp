@@ -1,0 +1,85 @@
+/* Establecer el margen y el relleno predeterminados en todo el documento */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Estilo del encabezado principal */
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Estilo del menú de navegación */
+nav {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+/* Estilo de los botones de navegación */
+button {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Estilo del contenedor del carrusel */
+#carousel-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Estilo de las imágenes del carrusel */
+#carousel-image {
+    max-width: 100%;
+    margin-bottom: 20px;
+}
+
+/* Estilo para el formulario de contacto */
+form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilo para las etiquetas de los campos del formulario */
+label {
+    margin-bottom: 10px;
+}
+
+/* Estilo para los campos del formulario */
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Estilo para el botón de envío del formulario */
+input[type="submit"] {
+    background-color: #333;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
